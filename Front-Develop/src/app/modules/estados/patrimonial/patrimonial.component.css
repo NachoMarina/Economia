@@ -1,0 +1,60 @@
+@import '../resultados/resultados.component.css';
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 1rem;
+}
+.flex {
+    flex: 1;
+}
+.border {
+    border: 1px solid #000;
+}
+.border-right {
+    border-right: 1px solid #000;
+}
+.card {
+    padding-bottom: 1rem;
+    align-items: center;
+}
+.header {
+    font-family: Roboto, sans-serif;
+    letter-spacing: .0125em;
+    font-size: 0.97rem;
+    color: rgb(230, 218, 195);
+    background-color: #673ab7 !important;
+}
+.capitalize::first-letter {
+    text-transform: uppercase;
+}
+.gap {
+    gap: 5rem;
+}
+.subtotal {
+    font-family: Roboto, sans-serif;
+    letter-spacing: .0125em;
+    font-size: 0.97rem;
+    background-color: rgba(183, 181, 58, 0.74) !important;
+}
+.totals {
+    background-color: lightgray;
+    padding: 10px;
+}
+.df {
+    display: flex;
+}
+.footer {
+    padding: 1rem 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: .0125em;
+    font-size: 0.97rem;
+}
+.bold {
+    font-weight: bold;
+}
+.bg {
+    background-color: rgb(141, 141, 141);
+}

@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-header>
+        <button type="button" mat-icon-button color="primary" routerLink="/cuentas/list">
+            <mat-icon>arrow_back</mat-icon>
+            <h4>Volver</h4>
+        </button>
+    </mat-card-header>
+    
+    <mat-card-title class="tituloEditar"> Usted modificará la cuenta: "{{mostrarNombreActual()}}"</mat-card-title>
+   
+    <form class="form" [formGroup]="cuentasForm" (ngSubmit)="cambiarNombre()">
+        <mat-form-field class="campo">
+            <mat-label>
+                Ingrese el nuevo nombre de la cuenta
+            </mat-label>
+            <input matInput type="text" formControlName="nuevoNombre">
+        </mat-form-field>
+        <button type="submit" mat-raised-button class="btn" color="basic" [disabled]="!cuentasForm.valid">Guardar cambios</button>    
+    </form>
+</mat-card>

@@ -1,0 +1,51 @@
+.content {
+    display: flex;
+    justify-content: center;
+} 
+.nuevaCuenta{
+    background-color: rgb(214, 207, 207);
+    padding: 2rem;
+}
+.guardar{
+    background-color: rgba(98, 223, 98, 0.705);
+}
+.cancelar{
+    background-color: rgba(255, 0, 0, 0.527);
+}
+.campos{
+    width: 25vw;
+    margin-right: 1rem;
+}
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column; 
+        margin: auto;
+    }
+    .campos {
+        width: 90vw;
+    }
+}
+.btn {
+    height: 3.4rem;
+    margin: .25rem .5rem;
+}
+
+.table {
+    font-weight: 400;
+}
+.th {
+    font-weight: bold;
+}
+.btn1 {
+    margin-right: 1rem;
+}
+.icono{
+    transform: scale(2.2);
+    color: rgb(137, 130, 238);
+    padding-right: 4%;
+}
+.iconoPdf{
+    transform: scale(2.2);
+    color: rgb(247, 247, 248);
+    padding-right: 4%;
+}

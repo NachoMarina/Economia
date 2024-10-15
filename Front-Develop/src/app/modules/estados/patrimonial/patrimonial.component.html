@@ -1,0 +1,112 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>Denominación de la entidad: <strong>Sistemas Contables S.A</strong></mat-card-title>
+    <mat-card-subtitle class="text-center">Estado de Situación Patrimonial al <strong>{{ fecha }}</strong></mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+<div class="container">
+  <div class="df">
+    <div class="flex">
+      <!-- Activo Corriente -->
+      <div class="border">
+        <table mat-table [dataSource]="parsearJson(patrimonioData[0][0].activos_corrientes)">        
+            <ng-container matColumnDef="rubro">
+              <th mat-header-cell *matHeaderCellDef class="header"><strong>Activo corriente</strong></th>
+              <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
+              <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del activo corriente</td>
+            </ng-container>
+
+            <ng-container matColumnDef="saldo">
+              <th mat-header-cell *matHeaderCellDef class="header"><strong>$</strong></th>
+              <td mat-cell *matCellDef="let element">{{ element.saldo }}</td>
+              <td mat-footer-cell *matFooterCellDef class="bold subtotal">{{ getTotalActivoCorriente() }}</td>
+            </ng-container>
+          <tr mat-header-row *matHeaderRowDef="['rubro', 'saldo']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['rubro', 'saldo'];"></tr>
+          <tr mat-footer-row *matFooterRowDef="['rubro', 'saldo']"></tr>
+        </table>  
+      </div>
+        <!-- Activo No Corriente -->
+      <div class="border">
+        <table mat-table [dataSource]="parsearJson(patrimonioData[1][0].activos_no_corrientes)">
+          <ng-container matColumnDef="rubro">
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>Activo no corriente</strong></th>
+            <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del activo no corriente</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="saldo">
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>$</strong></th>
+            <td mat-cell *matCellDef="let element">{{ element.saldo }}</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">{{ getTotalActivoNoCorriente() }}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="['rubro', 'saldo']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['rubro', 'saldo']"></tr>
+          <tr mat-footer-row *matFooterRowDef="['rubro', 'saldo']"></tr>
+        </table>
+        <div class="border footer bold bg">
+          <p>TOTAL DEL ACTIVO</p>
+          <p>{{ getTotalActivo() }}</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex">
+      <!-- Pasivo Corriente -->
+      <div class="border">
+        <table mat-table [dataSource]="parsearJson(patrimonioData[2][0].pasivos_corrientes)">
+          <ng-container matColumnDef="rubro">
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>Pasivo corriente</strong></th>
+            <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del pasivo corriente</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="saldo">
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>$</strong></th>
+            <td mat-cell *matCellDef="let element">{{ element.saldo }}</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">{{ getTotalPasivoCorriente() }}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="['rubro', 'saldo']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['rubro', 'saldo']"></tr>
+          <tr mat-footer-row *matFooterRowDef="['rubro', 'saldo']"></tr>
+        </table>
+      </div>
+      <!-- Pasivo No Corriente -->
+      <div class="border">
+        <table mat-table [dataSource]="parsearJson(patrimonioData[3][0].pasivos_no_corrientes)">
+          <ng-container matColumnDef="rubro">
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>Pasivo no corriente</strong></th>
+            <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del pasivo no corriente</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="saldo">
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>$</strong></th>
+            <td mat-cell *matCellDef="let element">{{ element.saldo }}</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">{{ getTotalPasivoNoCorriente() }}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="['rubro', 'saldo']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['rubro', 'saldo']"></tr>
+          <tr mat-footer-row *matFooterRowDef="['rubro', 'saldo']"></tr>
+        </table>
+      </div>
+      <div class="footer bold border bg">
+        <p>TOTAL DEL PASIVO</p>
+        <p>{{ getTotalPasivo() }}</p>
+      </div>
+      <div class="footer bold border-right subtotal">
+        <p>PATRIMONIO NETO</p>
+        <p>{{ getTotalPatrimonioNeto() }}</p>
+      </div>
+      <div class="border footer bold bg">
+        <p>TOTAL DEL PASIVO Y PATRIM. NETO</p>
+        <p>{{ getPasivoYPatrimonioNeto() }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
