@@ -9,7 +9,7 @@ const rutas = require('./Routes/rutasParaApi'); //Traemos las rutas desde el arc
 const { swaggerDocs: apiVersionUno } = require('./Documentation/swagger'); //Documentación de nuestra API
 
 //Seteado del puerto
-app.set('port', process.env.PORT || 3000); // Asignamos un puerto desde un '.env' o puerto 3000 por defecto.
+app.set('port', process.env.PORT || 3001); // Asignamos un puerto desde un '.env' o puerto 3000 por defecto.
 const port = app.get('port');
 
 // Middlewares (Servicios intermedios)
