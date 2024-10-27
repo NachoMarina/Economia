@@ -1,22 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import PlanDeCuentas from './pages/PlanDeCuentas';
-import LibroDiario from './pages/LibroDiario';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import AdminLayout from '../src/components/layouts/AdminLayout';
+import CuentasAdministration from './modules/cuentas/CuentasAdministration';
+import Asientos from './modules/asientos/Asientos';
+import Estados from './modules/estados/Estados';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/plan-de-cuentas" element={<PlanDeCuentas />} />
-          <Route path="/libro-diario" element={<LibroDiario />} />
-          {/* Aquí puedes añadir más rutas para otras páginas */}
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/cuentas" />} />
+        <Route path="/" element={<AdminLayout />}>
+          <Route path="cuentas" element={<CuentasAdministration />} />
+          <Route path="asientos" element={<Asientos />} />
+          <Route path="estados" element={<Estados />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
 
 export default App;
+
