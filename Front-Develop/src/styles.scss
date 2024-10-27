@@ -1,0 +1,90 @@
+// Importa Angular Material
+@use '@angular/material' as mat;
+
+// Paletas de colores personalizadas para el modo oscuro
+$sistema-contable-primary: mat.define-palette(mat.$green-palette, 700); // Verde oscuro para acentos
+$sistema-contable-accent: mat.define-palette(mat.$light-green-palette, A200); // Verde claro para botones o detalles
+$sistema-contable-warn: mat.define-palette(mat.$red-palette); // Opcional: rojo para advertencias
+
+// Crea el tema en modo oscuro
+$sistema-contable-theme: mat.define-dark-theme((
+  color: (
+    primary: $sistema-contable-primary,
+    accent: $sistema-contable-accent,
+    warn: $sistema-contable-warn,
+    background: (
+      default: #121212, // Fondo principal oscuro
+      app-bar: #1c1c1c // Fondo del encabezado ligeramente más claro
+    ),
+    foreground: (
+      base: #ffffff, // Texto principal blanco
+      disabled: rgba(255, 255, 255, 0.38),
+      divider: rgba(255, 255, 255, 0.12)
+    )
+  )
+));
+
+// Aplica el tema a todos los componentes de Angular Material
+@include mat.core();
+@include mat.all-component-themes($sistema-contable-theme);
+
+// Estilos personalizados
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212; // Fondo general
+    color: #ffffff; // Texto blanco
+}
+
+header {
+    background-color: #1c1c1c; // Fondo del encabezado
+    color: white;
+    padding: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    background-color: #1e1e1e; // Fondo de los contenedores
+    color: #ffffff; // Texto en contenedores
+    border-radius: 8px;
+}
+
+.button {
+    background-color: #388e3c; // Verde oscuro para botones
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    &:hover {
+        background-color: #66bb6a; // Verde más claro al hacer hover
+    }
+}
+
+// Estilos de tabla personalizados
+table {
+    width: 100%;
+    background-color: #2a2a2a; // Fondo de las tablas
+    color: #ffffff; // Texto de la tabla
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12); // Divisores claros
+}
+
+th {
+    background-color: #388e3c; // Fondo de encabezado en tablas
+    color: #ffffff;
+}
+
+td {
+    background-color: #1e1e1e; // Fondo de las celdas
+    &:hover {
+        background-color: #333333; // Cambio al hacer hover en celdas
+    }
+}

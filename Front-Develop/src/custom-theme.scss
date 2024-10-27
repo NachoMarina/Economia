@@ -1,0 +1,23 @@
+@import '../node_modules/@angular/material/theming';
+
+
+
+// Incluye las variables de Angular Material
+@include mat-core();
+
+// Define tu paleta de colores
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink);
+$warn: mat-palette($mat-red);
+
+// Crea el tema
+$custom-theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+));
+
+// Aplica el tema
+@include angular-material-theme($custom-theme);
