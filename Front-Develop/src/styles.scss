@@ -29,19 +29,32 @@ $sistema-contable-theme: mat.define-dark-theme((
 @include mat.all-component-themes($sistema-contable-theme);
 
 // Estilos personalizados
+
+    
+
 html, body { 
     height: 100%; 
     margin: 0; 
     font-family: 'Roboto', sans-serif;
-    background-color: #121212; // Fondo general
+    background-color: #494949; // Fondo general
     color: #ffffff; // Texto blanco
 }
 
 header {
-    background-color: #1c1c1c; // Fondo del encabezado
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #307439; /* Color de fondo del header */
     padding: 1rem;
-}
+  }
+  
+  .titulo {
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+    justify-content: center;
+  }
+  
 
 .container {
     max-width: 1200px;
@@ -53,7 +66,7 @@ header {
 }
 
 .button {
-    background-color: #388e3c; // Verde oscuro para botones
+    background-color: #28a32e; // Verde oscuro para botones
     color: #ffffff;
     border: none;
     padding: 0.5rem 1rem;
