@@ -1,6 +1,8 @@
 // Importa Angular Material
 @use '@angular/material' as mat;
 
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 // Paletas de colores personalizadas para el modo oscuro
 $sistema-contable-primary: mat.define-palette(mat.$green-palette, 700); // Verde oscuro para acentos
 $sistema-contable-accent: mat.define-palette(mat.$light-green-palette, A200); // Verde claro para botones o detalles
@@ -44,17 +46,45 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #307439; /* Color de fondo del header */
+    background-color: #205527; /* Color de fondo del header */
     padding: 1rem;
   }
-  
-  .titulo {
-    color: white;
-    font-size: 1.3rem;
-    text-align: center;
-    justify-content: center;
+
+  // Estilos de tabla personalizados
+table {
+  width: 100%;
+  background-color: #2a2a2a; // Fondo de las tablas
+  color: #ffffff; // Texto de la tabla
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12); // Divisores claros
+}
+
+th {
+  background-color: #388e3c; // Fondo de encabezado en tablas
+  color: #ffffff;
+}
+
+td {
+  background-color: #1e1e1e; // Fondo de las celdas
+  &:hover {
+      background-color: #333333; // Cambio al hacer hover en celdas
   }
+}
+
   
+.titulo {
+  width: 100%;
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  justify-content: center;
+}
+
 
 .container {
     max-width: 1200px;
@@ -76,28 +106,32 @@ header {
     }
 }
 
-// Estilos de tabla personalizados
-table {
-    width: 100%;
-    background-color: #2a2a2a; // Fondo de las tablas
-    color: #ffffff; // Texto de la tabla
-    border-collapse: collapse;
+.contenedor-cuentas{
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+  gap: 1rem;
+  width: 100%;
 }
 
-th, td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12); // Divisores claros
+.table{
+  width: 100%;
 }
 
-th {
-    background-color: #388e3c; // Fondo de encabezado en tablas
-    color: #ffffff;
+#gbr{
+  display: flex;
+  flex-direction: column;
+  // width: 20%;
 }
 
-td {
-    background-color: #1e1e1e; // Fondo de las celdas
-    &:hover {
-        background-color: #333333; // Cambio al hacer hover en celdas
-    }
+#nuevaCuenta{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
 }
+
+.tabla-cuentas{
+  flex: 1;
+  width: 100%;
+  padding: 5px;
+}
+
