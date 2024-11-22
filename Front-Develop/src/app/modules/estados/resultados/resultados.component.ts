@@ -55,7 +55,7 @@ export class ResultadosComponent {
         for (const elemento of grupo) {
           const totalArray = elemento.total;
           if (totalArray) {
-            const totalObj = this.parsearJson(totalArray)[0];
+            const totalObj = totalArray[0];
             if (totalObj && totalObj[tipo] !== undefined) {
               total += parseFloat(totalObj[tipo]);
             }
@@ -69,7 +69,7 @@ export class ResultadosComponent {
   getTotalResultadoDelEjercicio(): number {
     let total = 0;
     // Obtener la lista de rubros del resultado del ejercicio
-    const resultadoEjercicio = this.parsearJson(this.patrimonioData[4][0].resultado_del_ejercicio);
+    const resultadoEjercicio = this.patrimonioData[4][0].resultado_del_ejercicio;
     // Verificar que la lista de rubros sea un array
     if (Array.isArray(resultadoEjercicio)) {
       // Sumar los saldos de cada rubro

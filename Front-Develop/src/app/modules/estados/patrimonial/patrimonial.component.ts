@@ -47,76 +47,35 @@ export class PatrimonialComponent implements OnInit {
     return fechaHeader;
   }
 
+ 
+  
+
+
   getTotales(tipo: string): number {
     let total = 0;
   
     for (const grupo of this.patrimonioData) {
-      // Verificamos si el grupo es iterable
+      // Verificar si grupo es un iterable antes de recorrerlo
       if (Symbol.iterator in Object(grupo)) {
+
         for (const elemento of grupo) {
-          const totalArray = elemento?.[tipo]; // Cambiamos a `tipo` para buscar directamente el dato necesario
-  
+          
+          const totalArray = elemento.total;
+          //console.log("El objeto es iterable")
           if (totalArray) {
-            const parsedArray = this.parsearJson(totalArray);
-  
-            if (Array.isArray(parsedArray)) {
-              // Sumamos los saldos de cada objeto dentro del array parseado
-              total += parsedArray.reduce((acc, item) => acc + (item.saldo || 0), 0);
+            console.log("totalArray", totalArray)
+            const totalObj = totalArray[0];
+            
+            if (totalObj && totalObj[tipo] !== undefined) {
+              total += parseFloat(totalObj[tipo]);
             }
           }
         }
       }
     }
-  
-    // Retornamos el total asegurando que sea un float con precisión de 2 decimales
-    return parseFloat(total.toFixed(2));
+    return total;
   }
 
-  // getTotales(tipo: string): number {
-  //   let total = 0;
-  
-  //   // Iteramos sobre el arreglo principal
-  //   this.patrimonioData.forEach((grupo) => {
-  //     grupo.forEach((item:any) => {
-  //       // Verificamos si el tipo coincide
-  //       if (item[tipo]) {
-  //         const valores = JSON.parse(item[tipo]);
-  
-  //         // Sumamos los saldos del rubro actual
-  //         total += valores.reduce((acc:any, curr:any) => acc + curr.saldo, 0);
-  //       }
-  //     });
-  //   });
-  
-  //   return parseFloat(total.toFixed(2));
-  // }
-  
-
-
-  // getTotales(tipo: string): number {
-  //   let total = 0;
-  
-  //   for (const grupo of this.patrimonioData) {
-  //     // Verificar si grupo es un iterable antes de recorrerlo
-  //     if (Symbol.iterator in Object(grupo)) {
-  //       console.log("Grupo",grupo)
-  //       for (const elemento of grupo) {
-  //         console.log("Elemento of grupo",elemento)
-  //         const totalArray = elemento.total;
-  //         //console.log("El objeto es iterable")
-  //         if (totalArray) {
-  //           console.log("totalArray", totalArray)
-  //           const totalObj = this.parsearJson(totalArray)[0];
-  //           console.log("totalObj", totalObj)
-  //           if (totalObj && totalObj[tipo] !== undefined) {
-  //             total += parseFloat(totalObj[tipo]);
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  //   return total;
-  // }
   getTotalActivoCorriente(): number {
     const activoCorriente = this.getTotales('activos_corrientes');
     console.log("a ver que pasa",activoCorriente)
