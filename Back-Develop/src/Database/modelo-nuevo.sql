@@ -66,8 +66,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarAsiento` (IN `jsonCuentasAs
     DECLARE nuevoIdAsiento INT;
     DECLARE numerosJSON JSON;
     DECLARE cuentaValue INT;
-    DECLARE importe DECIMAL(10, 2);
-    DECLARE totalResultadoEjercicio DECIMAL(10,2);
+    DECLARE importe INT;
+    DECLARE totalResultadoEjercicio INT;
 
     SELECT MAX(id_asiento) INTO nuevoIdAsiento FROM asiento;
 
@@ -349,7 +349,7 @@ CREATE TABLE `asiento` (
 CREATE TABLE `asiento_cuenta` (
   `id_asiento` int NOT NULL,
   `id_cuenta` int NOT NULL,
-  `importe` decimal(10,2) NOT NULL
+  `importe` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -385,7 +385,7 @@ CREATE TABLE `cuentas` (
   `id_cuenta` int NOT NULL,
   `nombre_cuenta` varchar(50) NOT NULL,
   `cod_cuenta` varchar(3) NOT NULL,
-  `saldo_cuenta` decimal(10,2) NOT NULL,
+  `saldo_cuenta` int NOT NULL,
   `mostrarCuenta` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

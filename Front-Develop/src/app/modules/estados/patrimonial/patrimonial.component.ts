@@ -77,22 +77,20 @@ export class PatrimonialComponent implements OnInit {
   }
 
   getTotalActivoCorriente(): number {
-    const activoCorriente = this.getTotales('activos_corrientes');
-    console.log("a ver que pasa",activoCorriente)
+    const activoCorriente = this.getTotales('activo_corriente');
     return activoCorriente
   }
-
   getTotalActivoNoCorriente(): number {
-    return this.getTotales('activos_no_corrientes');
+    return this.getTotales('activo_no_corriente');
   }
   getTotalActivo(): number {
     return this.getTotales('activo');
   }
   getTotalPasivoCorriente(): number {
-    return this.getTotales('pasivos_corrientes');
+    return this.getTotales('pasivo_corriente');
   }
   getTotalPasivoNoCorriente(): number {
-    return this.getTotales('pasivos_no_corrientes');
+    return this.getTotales('pasivo_no_corriente');
   }
   getTotalPasivo(): number {
     return this.getTotales('pasivo');

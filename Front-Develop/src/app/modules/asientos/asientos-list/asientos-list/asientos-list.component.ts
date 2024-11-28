@@ -48,11 +48,12 @@ export class AsientosListComponent implements OnInit {
     let totalDebe = 0;
     for (const asiento of asientos) {
       if (asiento.importe >= 0) {
-        totalDebe += asiento.importe;
+        totalDebe += asiento.importe; // Redondear el valor
       }
     }
     return totalDebe;
   }
+  
   
   calcularTotalHaber(asientos: any[]) {
     let totalHaber = 0;
