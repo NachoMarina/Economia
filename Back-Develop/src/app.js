@@ -13,13 +13,23 @@ app.set('port', process.env.PORT || 3000); // Asignamos un puerto desde un '.env
 const port = app.get('port');
 
 // Middlewares (Servicios intermedios)
-app.use(cors()); //Permite comunicar a nuestro servidor (http://localhost:3000) con Angular (http://localhost:4200)
+app.use(cors({
+    origin: '*', // Permite todas las direcciones
+})); //Permite comunicar a nuestro servidor (http://localhost:3000) con Angular (http://localhost:4200)
 app.use(morgan("dev")); //Genera los status y tiempo de respuesta por consola cuando detecta eventos en la página.
 app.use(express.json()); //Para interpretar el formato JSON automáticamente (Evitamos especificar el Content-Type="text/json").
-app.use(express.static(path.join(__dirname)));// Establecemos la carpeta estática para servir el archivo 'index.html'
+app.use(express.static(path.join(__dirname, '../../Front-Develop/dist/sistema-contable')));
 
 // Servimos las rutas
 app.use('/', rutas);
+
+// Servir archivos estáticos desde la carpeta dist de Angular
+
+
+// Servir index.html para rutas no definidas
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../Front-Develop/dist/sistema-contable/index.html'));
+});
 
 // Iniciamos el servidor
 app.listen(port, ()=>{

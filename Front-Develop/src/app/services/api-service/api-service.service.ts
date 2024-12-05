@@ -6,9 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private ApiUrl = 'http://localhost:3000';
+  private ApiUrl:string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // Determinar si está en local o en ngrok
+    if (window.location.hostname === 'localhost') {
+      this.ApiUrl = 'http://localhost:3000';  // Local
+    } else {
+      this.ApiUrl = 'https://4f95-181-170-239-252.ngrok-free.app';  // ngrok
+    }
+  }
 
   mostrarCuentas(grupo: number, bloque: number, rubro: number): Observable<any> {
     const url = `${this.ApiUrl}/mostrarCuentas/${grupo}/${bloque}/${rubro}`;
