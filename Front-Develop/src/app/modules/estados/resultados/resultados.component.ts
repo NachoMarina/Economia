@@ -81,7 +81,10 @@ export class ResultadosComponent {
   }
   getGananciaPerdidaEjercicio(): string {
     const resultado = this.getTotalResultadoDelEjercicio();
-    return resultado >= 0 ? 'GANANCIA' : 'PÉRDIDA';
+    //ORIGINAL
+    // return resultado >= 0 ? 'GANANCIA' : 'PÉRDIDA';
+    //CAMBIO
+    return resultado >= 0 ? 'PÉRDIDA' : 'GANANCIA';
   }
   mostrarResultadoAbsoluto(): number {
     const resultado = this.getTotalResultadoDelEjercicio();
@@ -93,6 +96,9 @@ export class ResultadosComponent {
   }
   getGananciaPerdidaOrdinarias(): string {
     const resultado = this.getTotalOrdinario();
-    return resultado >= 0 ? 'Ganancia' : 'Pérdida';
+    //ORIGINAL
+    // return resultado >= 0 ? 'Ganancia' : 'Pérdida';
+    //CAMBIO
+    return resultado >= 0 ? 'Pérdida' : 'Ganancia';
   }
 }
