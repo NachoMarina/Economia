@@ -2,16 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from 'src/app/services/api-service/api-service.service';
 import swal from'sweetalert2';
-import { PdfMakeWrapper, Table } from 'pdfmake-wrapper';
-import { ITable } from 'pdfmake-wrapper/lib/interfaces'; 
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+
+
 
 
 // Dejo link de la documentacion de la libreria para PDF por si quieren personalizarlo
 // https://pdfmake.github.io/docs/0.1/getting-started/client-side/
-PdfMakeWrapper.setFonts(pdfFonts);
+
 
 @Component({
   selector: 'app-cuentas-list',
@@ -144,40 +141,40 @@ rubrosFiltrados: any[] = [];
 dataSource = this.cuentasData;
 displayedColumns = ['nombre', 'codigo', 'saldo', 'acciones'];
 
- async generarPdf(){
-  const pdf = new PdfMakeWrapper();
-  const datosParaPdf = this.cuentasData;
-  const rubroElegido = this.rubrosFiltrados.find(rubro => rubro.id_rubro === this.rubroSeleccionado);
+//  async generarPdf(){
+//   const pdf = new PdfMakeWrapper();
+//   const datosParaPdf = this.cuentasData;
+//   const rubroElegido = this.rubrosFiltrados.find(rubro => rubro.id_rubro === this.rubroSeleccionado);
 
-  pdf.header({text: `Cuentas del rubro: "${rubroElegido.nombre_rubro}"`, alignment: 'center', margin:[0,10], fontSize: 16});
-  pdf.add(this.armarPdf(datosParaPdf));
-  pdf.watermark({text: 'Plan de cuentas', color: 'red', opacity: 0.1, bold: false, italics: false, width:15});
-  pdf.create().open();
-}
+//   pdf.header({text: `Cuentas del rubro: "${rubroElegido.nombre_rubro}"`, alignment: 'center', margin:[0,10], fontSize: 16});
+//   pdf.add(this.armarPdf(datosParaPdf));
+//   pdf.watermark({text: 'Plan de cuentas', color: 'red', opacity: 0.1, bold: false, italics: false, width:15});
+//   pdf.create().open();
+// }
 
-extraerDatosParaPdf(data: any[]){
- return data.map(fila => [fila.nombre, fila.codigo, fila.tipo, fila.saldo]);
-}
+// extraerDatosParaPdf(data: any[]){
+//  return data.map(fila => [fila.nombre, fila.codigo, fila.tipo, fila.saldo]);
+// }
 
- armarPdf(data: any[]): ITable{
-  return new Table([
-    ["Nombre", "Código", "Tipo", "Saldo"],
-    ...this.extraerDatosParaPdf(data)
-  ])
-  .alignment('center')
-  .color('white')
-  .fontSize(15)
-  .decorationStyle('dotted')
-  .widths('*')
-  .heights(altura =>{
-    return altura === 0 ? 30: 40;
-  })
-  .layout({
-    fillColor: rowIndex => {
-      return rowIndex === 0 ? '#484B4A' : '#852FEC';
-    }
-  })
-  .end;
- }
+//  armarPdf(data: any[]): ITable{
+//   return new Table([
+//     ["Nombre", "Código", "Tipo", "Saldo"],
+//     ...this.extraerDatosParaPdf(data)
+//   ])
+//   .alignment('center')
+//   .color('white')
+//   .fontSize(15)
+//   .decorationStyle('dotted')
+//   .widths('*')
+//   .heights(altura =>{
+//     return altura === 0 ? 30: 40;
+//   })
+//   .layout({
+//     fillColor: rowIndex => {
+//       return rowIndex === 0 ? '#484B4A' : '#852FEC';
+//     }
+//   })
+//   .end;
+//  }
 
 }
