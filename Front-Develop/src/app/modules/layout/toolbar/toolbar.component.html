@@ -2,7 +2,7 @@
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>reorder</mat-icon>
     </button>
-    <span class="titulo">CONTABLE</span>
+    <span class="titulo">ECONOMÍA EMPRESARIAL</span>
     <mat-menu #menu="matMenu">
         <a [routerLink]="['/cuentas/list']">
             <button mat-menu-item>
@@ -18,13 +18,13 @@
         </a>
         <a [routerLink]="['/estados/resultados']">        
             <button mat-menu-item>
-                <mat-icon>book_5</mat-icon>
+                <mat-icon>receipt</mat-icon>
                 <span>Estado de Resultados</span>
             </button>
         </a>
         <a [routerLink]="['/estados/patrimonial']">
             <button mat-menu-item>
-                <mat-icon>account_balance</mat-icon>
+                <mat-icon>assignment</mat-icon>
                 <span>Situación Patrimonial</span>
             </button>
         </a>
