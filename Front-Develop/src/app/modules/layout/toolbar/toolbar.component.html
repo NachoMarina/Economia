@@ -1,32 +1,20 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>reorder</mat-icon>
-    </button>
     <span class="titulo">ECONOMÍA EMPRESARIAL</span>
-    <mat-menu #menu="matMenu">
-        <a [routerLink]="['/cuentas/list']">
-            <button mat-menu-item>
-                <mat-icon>library_books</mat-icon>
-                <span>Plan de Cuentas</span>
-            </button>
-        </a>
-        <a [routerLink]="['/asientos/list']">
-            <button mat-menu-item>
-                <mat-icon>account_balance_wallet</mat-icon>
-                <span>Libro Diario</span>
-            </button>
-        </a>
-        <a [routerLink]="['/estados/resultados']">        
-            <button mat-menu-item>
-                <mat-icon>receipt</mat-icon>
-                <span>Estado de Resultados</span>
-            </button>
-        </a>
-        <a [routerLink]="['/estados/patrimonial']">
-            <button mat-menu-item>
-                <mat-icon>assignment</mat-icon>
-                <span>Situación Patrimonial</span>
-            </button>
-        </a>
-    </mat-menu>
+    <span class="spacer"></span> <!-- Espaciador para alinear los botones a la derecha -->
+    <button mat-button class="toolbar-button" [routerLink]="['/cuentas/list']">
+        <mat-icon>library_books</mat-icon>
+        <span>PLAN DE CUENTAS</span>
+    </button>
+    <button mat-button class="toolbar-button" [routerLink]="['/asientos/list']">
+        <mat-icon>account_balance_wallet</mat-icon>
+        <span>LIBRO DIARIO</span>
+    </button>
+    <button mat-button class="toolbar-button" [routerLink]="['/estados/resultados']">
+        <mat-icon>receipt</mat-icon>
+        <span>ESTADO DE RESULTADOS</span>
+    </button>
+    <button mat-button class="toolbar-button" [routerLink]="['/estados/patrimonial']">
+        <mat-icon>assignment</mat-icon>
+        <span>SITUACIÓN PATRIMONIAL</span>
+    </button>
 </mat-toolbar>

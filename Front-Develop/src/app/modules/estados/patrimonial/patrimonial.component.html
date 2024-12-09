@@ -1,6 +1,6 @@
 <mat-card class="card">
   <mat-card-header>
-    <mat-card-title class="text-center"><strong>Situación Patrimonial al {{ fecha }}</strong></mat-card-title>
+    <mat-card-title class="text-center"><strong>SITUACIÓN PATRIMONIAL AL {{ fecha }}</strong></mat-card-title>
   </mat-card-header>
 </mat-card>
 <div class="container">
@@ -10,9 +10,9 @@
       <div class="border">
         <table mat-table [dataSource]="patrimonioData[0][0].activos_corrientes">        
             <ng-container matColumnDef="rubro">
-              <th mat-header-cell *matHeaderCellDef class="header"><strong>Activo corriente</strong></th>
+              <th mat-header-cell *matHeaderCellDef class="header"><strong>ACTIVO CORRIENTE</strong></th>
               <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
-              <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del activo corriente</td>
+              <td mat-footer-cell *matFooterCellDef class="bold subtotal">TOTAL ACTIVO CORRIENTE</td>
             </ng-container>
 
             <ng-container matColumnDef="saldo">
@@ -29,9 +29,9 @@
       <div class="border">
         <table mat-table [dataSource]="patrimonioData[1][0].activos_no_corrientes">
           <ng-container matColumnDef="rubro">
-            <th mat-header-cell *matHeaderCellDef class="header"><strong>Activo no corriente</strong></th>
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>ACTIVO NO CORRIENTE</strong></th>
             <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
-            <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del activo no corriente</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">TOTAL ACTIVO NO CORRIENTE</td>
           </ng-container>
         
           <ng-container matColumnDef="saldo">
@@ -57,9 +57,9 @@
       <div class="border">
         <table mat-table [dataSource]="patrimonioData[2][0].pasivos_corrientes">
           <ng-container matColumnDef="rubro">
-            <th mat-header-cell *matHeaderCellDef class="header"><strong>Pasivo corriente</strong></th>
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>PASIVO CORRIENTE</strong></th>
             <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
-            <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del pasivo corriente</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">TOTAL PASIVO CORRIENTE</td>
           </ng-container>
         
           <ng-container matColumnDef="saldo">
@@ -77,9 +77,9 @@
       <div class="border">
         <table mat-table [dataSource]="patrimonioData[3][0].pasivos_no_corrientes">
           <ng-container matColumnDef="rubro">
-            <th mat-header-cell *matHeaderCellDef class="header"><strong>Pasivo no corriente</strong></th>
+            <th mat-header-cell *matHeaderCellDef class="header"><strong>PASIVO NO CORRIENTE</strong></th>
             <td mat-cell *matCellDef="let element" class="capitalize">{{ element.rubro }}</td>
-            <td mat-footer-cell *matFooterCellDef class="bold subtotal">Total del pasivo no corriente</td>
+            <td mat-footer-cell *matFooterCellDef class="bold subtotal">TOTAL PASIVO NO CORRIENTE</td>
           </ng-container>
         
           <ng-container matColumnDef="saldo">
